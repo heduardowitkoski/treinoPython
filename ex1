@@ -1,0 +1,25 @@
+larguraTerreno=float(input('Insira a largura do terreno: '))
+comprimentoTerreno=float(input('Insira o comprimento do terreno: '))
+larguraGaragem=float(input('Insira a largura da garagem: '))
+comprimentoGaragem=float(input('Insira o comprimento da garagem: '))
+zona=input('Insira a zona que está localizado o terreno\nzn - zona norte\nzl - zona leste\nzo - zona oeste\nzs - zona sul\n')
+areaDoTerreno=larguraTerreno*comprimentoTerreno
+areaDaGaragem=larguraGaragem*comprimentoGaragem
+percentual=(areaDaGaragem/areaDoTerreno)*100
+if(zona=='zn'):
+    if(percentual<=25):
+        print('Pode executar o projeto')
+    else:
+        print('Não pode executar o projeto')
+
+elif(zona=='zl' or zona=='zo'):
+    if(percentual<=30):
+        print('Pode executar o projeto')
+    else:
+        print('Não pode executar o projeto')
+
+elif(zona=='zs'):
+    if(percentual<=40):
+        print('Pode executar o projeto')
+    else:
+        print('Não pode executar o projeto')
