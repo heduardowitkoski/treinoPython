@@ -1,2 +1,0 @@
-nome=input('Insira seu nome: ')
-print('Olá '+nome.title()+', seja bem vindo!')
