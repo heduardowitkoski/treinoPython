@@ -1,0 +1,10 @@
+i=-1
+aux=0
+while i!=0:
+    numero = int(input('Digite um numero para ver a sua tabuada: '))
+    j=1
+    while j<=10:
+        aux=numero*j
+        print(aux)
+        j+=1
+    i=int(input("digite 0 para sair do programa.\ndigite 1 para continuar no programa.\n"))
