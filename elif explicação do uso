@@ -1,6 +1,10 @@
 idade=int(input('Insira sua idade: '))
 
+print('#################')
+
+
 print('Programa 1(forma correta)')
+
 if idade>=18:
     print('Você é adulto')
 elif idade>=15:
@@ -10,7 +14,9 @@ else:
 
 print('#################')
 
+
 print('Programa 2(forma errada)')
+
 if idade>=18:
     print('Você é adulto')
 if idade>=15:
