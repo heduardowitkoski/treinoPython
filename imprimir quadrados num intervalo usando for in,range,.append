@@ -1,0 +1,5 @@
+quadrados=[]
+for n in range(1,21):
+    square=n**2
+    quadrados.append(square)
+print(quadrados)
