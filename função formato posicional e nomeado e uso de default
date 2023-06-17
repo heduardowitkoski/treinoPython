@@ -1,0 +1,8 @@
+def pet(nome,tipo='cachorro'):
+    print('Olá, eu tenho um '+tipo)
+    print('O nome do meu '+tipo+' é '+nome)
+
+pet(tipo='gato',nome='tom') #argumento nomeado, poderia usar posicional também.
+##se for usar um default, o default tem que ser o ultimo parâmetro na definição da função, pois senão
+##irá atrapalhar na definição dos argumentos de forma posicional. na forma nomeada não importa a ordem ao chamar
+##no entanto sempre que for definir a função com algum default, o default tem que estar por ultimo nos parâmetros
