@@ -1,8 +1,0 @@
-x=int(input("insira um numero: "))
-y=int(input("insira mais um numero: "))
-
-def soma(a,b):
-    return a+b
-
-soma=soma(x,y)
-print(soma)

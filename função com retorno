@@ -1,0 +1,8 @@
+x=int(input("insira um numero: "))
+y=int(input("insira mais um numero: "))
+
+def soma(a,b):
+    return a+b
+
+soma=soma(x,y) #quando existe retorno de uma função, é necessário que essa função seja chamada dentro de uma variável
+print(soma)    #para que essa variável armazene o valor de retorno da função
