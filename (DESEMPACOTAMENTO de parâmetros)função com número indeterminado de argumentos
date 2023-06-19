@@ -6,3 +6,12 @@ def media (*notas):
     return media
 
 print('{:.2f}'.format(media(8,9.3,6.7,5,10,7)))
+
+################################################
+
+def cubos (*args):
+    cubo=[]
+    for i in range(0,len(args)):
+        cubo.append((args[i])**3)
+    return cubo
+print(cubos(1,2,3,4,5))
