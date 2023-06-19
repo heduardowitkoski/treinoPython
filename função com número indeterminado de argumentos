@@ -1,0 +1,8 @@
+def media (*notas):
+    soma=0
+    for i in range(0,len(notas)):
+        soma+=notas[i]
+    media=soma/len(notas)
+    return media
+
+print('{:.2f}'.format(media(8,9.3,6.7,5,10,7)))
