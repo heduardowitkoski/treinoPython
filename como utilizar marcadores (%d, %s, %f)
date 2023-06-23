@@ -1,3 +1,10 @@
 nome=input('Insira seu nome: ')
 idade=int(input('Insira sua idade: '))
 print('Olá %s, você tem %d anos'%(nome,idade))
+
+
+################################################
+
+nome='joão'
+valor=51.34
+print('%s tem R$%.2f no bolso'%(nome.title(),valor))
