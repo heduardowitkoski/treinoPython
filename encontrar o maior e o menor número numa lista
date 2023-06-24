@@ -1,4 +1,4 @@
-lista=[12,54,367,1023,234,332,42,9]
+lista=[-3,12,54,-15,367,1023,234,332,42,9]
 maior=lista[0]
 for i in lista:
     if i>maior:
@@ -7,7 +7,7 @@ for i in lista:
 print(maior)
 
 
-lista=[12,54,367,1023,234,332,42,9]
+lista=[-3,12,54,-15,367,1023,234,332,42,9]
 menor=lista[0]
 for i in lista:
     if i<menor:
