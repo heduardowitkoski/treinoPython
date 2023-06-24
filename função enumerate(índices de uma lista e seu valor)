@@ -1,0 +1,3 @@
+lista=[2,3,5,7,11]
+for e,x in enumerate(lista):
+    print("índice %d, valor %d"%(e,x)) #gera tuplas com o índice e o valor, Ex: (0,2),(1,3),(2,5)
