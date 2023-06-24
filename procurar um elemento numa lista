@@ -1,0 +1,10 @@
+num=int(input('Insira um número para ser buscado na lista: '))
+lista=[2,3,5,7,11,13]
+contador=0
+for i in lista:
+    if i==num:
+        print('%d encontrado no índice %d da lista'%(num,contador))
+        break
+    contador+=1
+else:
+    print('não encontrado')
