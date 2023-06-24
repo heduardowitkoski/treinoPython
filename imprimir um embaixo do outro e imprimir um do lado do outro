@@ -1,9 +1,10 @@
 for i in range(1,5):
-    print(i) #cada número será impresso um embaixo do outro.
+    print(i) #cada número será impresso um embaixo do outro. Pois o argumento default do parâmetro 'end' da
+             #função print é \n(pular linha).
 
 print('\n####################\n')
 
 for i in range(1,5):
     print(i,end=' ') #cada número será impresso um ao lado do outro com um espaço em branco, pois foi usado o
-                     #o parâmetro end da função print, o argumento poderia ser ',' ao invés de ' ', caso
+                     #o parâmetro 'end' da função print, o argumento poderia ser ',' ao invés de ' ', caso
                      #quisessemos que a divisão entre os números fosse feita por vírgulas.
