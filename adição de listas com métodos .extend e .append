@@ -1,0 +1,11 @@
+lista1=list(range(1,6))
+lista2=list(range(6,11))
+lista1.extend(lista2)      #método .extend adiciona uma lista a outra lista mantendo cada elemento como único
+print(lista1) 
+
+#################################
+
+lista1=list(range(1,6))
+lista2=list(range(6,11))
+lista1.append(lista2)      #método .append adiciona uma lista a outra lista como um total, uma lista passa a ser
+print(lista1)              #apenas um elemento [1, 2, 3, 4, 5, [6, 7, 8, 9, 10]] <- [6,7,8,9,10] = 1 elemento
