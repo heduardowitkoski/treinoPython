@@ -1,0 +1,9 @@
+compras=[]
+while True:
+    compra=input('digite sua compra ou digite fim para encerrar: ')
+    if compra=='fim':
+        break
+    else:
+        compras.append(compra)
+for i in compras:
+    print(i,end=', ')
