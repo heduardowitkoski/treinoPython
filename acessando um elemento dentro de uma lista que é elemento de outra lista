@@ -1,0 +1,4 @@
+lista1=[1,2,3]
+lista2=[4,5,6]
+lista1.append(lista2)
+print(lista1[3][1]) #acessando um elemento dentro de uma lista que é elemento de outra lista
