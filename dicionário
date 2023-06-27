@@ -1,0 +1,6 @@
+heduardo={'namorada':'erika','cachorro':'toco','curso':'computação','time':'grêmio'}
+heduardo['cachorro']='tony' #mudar o valor de uma chave no dicionário.
+print(heduardo)
+heduardo['gato']='mika'  #adicionar um par chave:valor ao dicionário já existente.
+print(heduardo)
+print(heduardo['namorada']) #printar apenas um valor
