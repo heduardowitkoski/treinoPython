@@ -1,0 +1,3 @@
+eu={'nomes':{'primeiro':'heduardo','sobrenome':'witkoski'},'namorada':'erika','cachorros':['toco','tony'],'idade':21}
+#é possível usar um dicionário como valor de um par chave:valor, ou seja, é possível aninhar
+#dicionários um dentro do outro, é possivel fazer o mesmo com listas.
