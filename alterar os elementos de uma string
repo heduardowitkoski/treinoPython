@@ -1,0 +1,10 @@
+string='Olá, mundo!'
+lista=list(string)
+lista[1]='L'
+print(lista)
+s=''.join(lista)
+print(s)
+
+"""para alterar uma string, é necessário transformá-la numa lista com a função list(),depois podemos 
+usar o método .join e uma string vazia para armazenar a string em outra variável, dessa vez sem ficar
+divida em cada elemento ['O', 'L', 'á', ',', ' ', 'm', 'u', 'n', 'd', 'o', '!'] => OLá, mundo! """
