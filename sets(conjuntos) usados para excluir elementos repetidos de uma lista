@@ -1,0 +1,4 @@
+lista=['a','b','c','d','b','e']
+print(lista)
+listaSet=set(lista)
+print(listaSet)   # Ao transformar uma lista em um set, serão excluídos os elementos repetidos.
