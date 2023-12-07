@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_CANDIDATES 2
+#define MAX_NAME_LENGTH 50
+
+typedef struct {
+    char name[MAX_NAME_LENGTH];
+    int code;
+    int votes;
+} Candidate;
+
+// Declaração da função writeResultsToFile
+void writeResultsToFile(Candidate candidates[MAX_CANDIDATES], int totalVotes, int totalBlankVotes, int totalNullVotes, float percentageBlank, float percentageNull);
+
+void getCandidateInfo(Candidate *candidate, int index);
+void printMenu(Candidate candidates[MAX_CANDIDATES]);
+void recordVote(Candidate candidates[MAX_CANDIDATES], int option, int *totalVotes, int *totalBlankVotes, int *totalNullVotes);
+void calculatePercentages(int totalVotes, int totalBlankVotes, int totalNullVotes, float *percentageBlank, float *percentageNull);
+void printResults(Candidate candidates[MAX_CANDIDATES], int totalVotes, int totalBlankVotes, int totalNullVotes, float percentageBlank, float percentageNull);
+
+int main() {
+    Candidate candidates[MAX_CANDIDATES];
+    int totalVotes = 0, totalBlankVotes = 0, totalNullVotes = 0;
+    float percentageBlank, percentageNull;
+
+    // Informações dos candidatos
+    for (int i = 0; i < MAX_CANDIDATES; i++) {
+        getCandidateInfo(&candidates[i], i + 1);
+    }
+
+    int option;
+    do {
+        printMenu(candidates);
+        printf("Digite a sua opção: ");
+        scanf("%d", &option);
+
+        recordVote(candidates, option, &totalVotes, &totalBlankVotes, &totalNullVotes);
+
+    } while (option != -1);
+
+    calculatePercentages(totalVotes, totalBlankVotes, totalNullVotes, &percentageBlank, &percentageNull);
+
+    printResults(candidates, totalVotes, totalBlankVotes, totalNullVotes, percentageBlank, percentageNull);
+
+    writeResultsToFile(candidates, totalVotes, totalBlankVotes, totalNullVotes, percentageBlank, percentageNull);
+
+    return 0;
+}
+
+void getCandidateInfo(Candidate *candidate, int index) {
+    printf("Digite o nome do candidato %d: ", index);
+    scanf("%s", candidate->name);
+    printf("Digite o código do candidato %d: ", index);
+    scanf("%d", &candidate->code);
+    candidate->votes = 0;
+}
+
+void printMenu(Candidate candidates[MAX_CANDIDATES]) {
+    printf("------------------------------------------------- Menu:\n");
+
+    for (int i = 0; i < MAX_CANDIDATES; i++) {
+        printf("Voto em %s: %d\n", candidates[i].name, candidates[i].code);
+    }
+
+    printf("Voto em Branco: 0\n");
+    printf("Encerrar votação: -1 (ou qualquer valor negativo).\n");
+}
+
+void recordVote(Candidate candidates[MAX_CANDIDATES], int option, int *totalVotes, int *totalBlankVotes, int *totalNullVotes) {
+    switch (option) {
+        case -1:
+            break;
+        case 0:
+            (*totalBlankVotes)++;
+            (*totalVotes)++;
+            break;
+        default:
+            // Verifica se o voto é válido
+            int isValidVote = 0;
+            for (int i = 0; i < MAX_CANDIDATES; i++) {
+                if (option == candidates[i].code) {
+                    candidates[i].votes++;
+                    isValidVote = 1;
+                    (*totalVotes)++;
+                    break;
+                }
+            }
+
+            if (!isValidVote) {
+                (*totalNullVotes)++;
+            }
+    }
+}
+
+void calculatePercentages(int totalVotes, int totalBlankVotes, int totalNullVotes, float *percentageBlank, float *percentageNull) {
+    *percentageBlank = (float)totalBlankVotes / totalVotes * 100;
+    *percentageNull = (float)totalNullVotes / totalVotes * 100;
+}
+
+void printResults(Candidate candidates[MAX_CANDIDATES], int totalVotes, int totalBlankVotes, int totalNullVotes, float percentageBlank, float percentageNull) {
+    printf("Resultados da votação:\n");
+    printf("a) Total geral de votos realizados: %d\n", totalVotes);
+    for (int i = 0; i < MAX_CANDIDATES; i++) {
+        printf("b) Total de votos para %s (%d): %d\n", candidates[i].name, candidates[i].code, candidates[i].votes);
+    }
+    printf("c) Total de votos em branco: %d\n", totalBlankVotes);
+    printf("d) Total de votos nulos: %d\n", totalNullVotes);
+    printf("e) Percentagem de votos em branco sobre o total de votos: %.2f%%\n", percentageBlank);
+    printf("f) Percentagem de votos nulos sobre o total de votos: %.2f%%\n", percentageNull);
+}
+
+void writeResultsToFile(Candidate candidates[MAX_CANDIDATES], int totalVotes, int totalBlankVotes, int totalNullVotes, float percentageBlank, float percentageNull) {
+    FILE *file = fopen("votacao.txt", "w");
+
+    fprintf(file, "Resultados da votação:\n");
+    fprintf(file, "a) Total geral de votos realizados: %d\n", totalVotes);
+    for (int i = 0; i < MAX_CANDIDATES; i++) {
+        fprintf(file, "b) Total de votos para %s (%d): %d\n", candidates[i].name, candidates[i].code, candidates[i].votes);
+    }
+    fprintf(file, "c) Total de votos em branco: %d\n", totalBlankVotes);
+    fprintf(file, "d) Total de votos nulos: %d\n", totalNullVotes);
+    fprintf(file, "e) Percentagem de votos em branco sobre o total de votos: %.2f%%\n", percentageBlank);
+    fprintf(file, "f) Percentagem de votos nulos sobre o total de votos: %.2f%%\n", percentageNull);
+
+    fclose(file);
+}
